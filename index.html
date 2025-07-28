@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lt Col Rahul Banerjee - Security & Risk Management Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .credentials {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+        }
+
+        nav {
+            background: rgba(52, 73, 94, 0.95);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-details {
+            margin-bottom: 1rem;
+        }
+
+        .impact-stats {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #3498db, #9b59b6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 60px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                padding-left: 40px;
+            }
+        }
+
+        .metric {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1>Lt Col Rahul Banerjee</h1>
+                    <div class="credentials">GRCP, LA ISO 27001, SSGB</div>
+                    <div class="contact-info">
+                        <span>📍 Navi Mumbai, IN</span>
+                        <a href="mailto:banerjeerahul76@gmail.com">✉️ banerjeerahul76@gmail.com</a>
+                        <span>📱 (+91) 9733351074</span>
+                        <a href="https://www.linkedin.com/in/rahul-banerjee0311/" target="_blank">🔗 LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Key Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="about" class="section">
+                <h2>Professional Summary</h2>
+                <div class="summary">
+                    Security and risk management leader with <span class="highlight">20+ years of experience</span> across corporate and military domains, specializing in physical security systems, crisis management, fraud investigations, loss prevention and regulatory compliance. 
+                    
+                    <br><br>
+                    
+                    My expertise spans from <span class="highlight">engineering security technologies</span> that mitigate 85% of security breaches to <span class="highlight">recovering INR 3+M</span> through strategic theft prevention. As a certified Lead Auditor ISO 27001:2022 and GRC professional, I've successfully trained over <span class="highlight">1000+ professionals</span> across Southeast Asia, improving investigative competency by 60%.
+                    
+                    <br><br>
+                    
+                    I specialize in transforming security challenges into strategic advantages through data-driven approaches and innovative technology integration.
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>Featured Security Transformations</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>🏢 Enterprise Security Transformation - L&W Construction</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> Secure 43 locations across 4 Indian states with 6,000+ employees
+                            <br><br>
+                            <strong>Solution:</strong> Developed comprehensive group risk framework with centralized SOC, integrating CCTV, access control, and analytics dashboard
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">85% breach reduction</div>
+                            <div class="metric">70% faster response</div>
+                            <div class="metric">90% compliance achieved</div>
+                            <div class="metric">INR 50M budget managed</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>💰 Fraud Investigation & Recovery Program</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> INR 200+M fraud cases across multiple geographies
+                            <br><br>
+                            <strong>Solution:</strong> Implemented forensic analysis framework and structured investigation methodologies
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">INR 3+M recovered</div>
+                            <div class="metric">90% violation reduction</div>
+                            <div class="metric">0.05% shrinkage rate</div>
+                            <div class="metric">Successful prosecutions</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🏥 Healthcare Security Optimization</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> Secure healthcare access for 200,000+ ex-servicemen across 216 facilities
+                            <br><br>
+                            <strong>Solution:</strong> Applied Six Sigma methodologies with data analytics for fraud detection
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">78% efficiency increase</div>
+                            <div class="metric">INR 1800M resources unlocked</div>
+                            <div class="metric">10% fraud reduction</div>
+                            <div class="metric">200K+ beneficiaries</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🔒 Joint Operations Centre (JOC) Development</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> Secure 10,000-acre facility with advanced threat detection
+                            <br><br>
+                            <strong>Solution:</strong> Designed INR 30M JOC with integrated surveillance and perimeter defense
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">95% threat detection</div>
+                            <div class="metric">80% faster response</div>
+                            <div class="metric">10,000 acres secured</div>
+                            <div class="metric">Zero infiltrations</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>📚 Security Training & Capacity Building</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> Standardize security training across Southeast Asia
+                            <br><br>
+                            <strong>Solution:</strong> Co-authored training manuals and conducted specialized workshops
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">1000+ professionals trained</div>
+                            <div class="metric">60% skill improvement</div>
+                            <div class="metric">2 training manuals</div>
+                            <div class="metric">35% capability boost</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🚛 Supply Chain Security Enhancement</h3>
+                        <div class="project-details">
+                            <strong>Challenge:</strong> Secure transportation across 450km with high-value materials
+                            <br><br>
+                            <strong>Solution:</strong> Implemented GPS tracking, workforce vetting, and end-to-end integrity protocols
+                        </div>
+                        <div class="impact-stats">
+                            <div class="metric">80% theft reduction</div>
+                            <div class="metric">INR 1.5M cost savings</div>
+                            <div class="metric">20+ warehouses secured</div>
+                            <div class="metric">100% compliance</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🔐 Security Management</h3>
+                        <ul class="skill-list">
+                            <li>Physical Security Systems</li>
+                            <li>Access Control & CCTV</li>
+                            <li>Perimeter Defense</li>
+                            <li>VIP Protection</li>
+                            <li>Event Security</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚠️ Risk & Crisis Management</h3>
+                        <ul class="skill-list">
+                            <li>Threat Intelligence</li>
+                            <li>Crisis Response Planning</li>
+                            <li>Business Continuity</li>
+                            <li>Emergency Coordination</li>
+                            <li>Risk Assessment</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔍 Investigation & Compliance</h3>
+                        <ul class="skill-list">
+                            <li>Fraud Investigation</li>
+                            <li>Forensic Analysis</li>
+                            <li>Regulatory Compliance</li>
+                            <li>ISO 27001 Auditing</li>
+                            <li>Loss Prevention</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>💼 Leadership & Operations</h3>
+                        <ul class="skill-list">
+                            <li>Team Management (30+ professionals)</li>
+                            <li>Budget Management (INR 50M+)</li>
+                            <li>SLA Compliance</li>
+                            <li>Vendor Management</li>
+                            <li>Six Sigma Methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section">
+                <h2>Professional Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>GM – Security | L&W Construction Private Ltd</h3>
+                            <div class="timeline-date">Feb 2023 - Jan 2025</div>
+                            <p>Led comprehensive security transformation across 43 locations in 4 states, managing team of 30+ professionals. Developed group risk framework that mitigated 85% of security breaches while recovering INR 3+M through strategic theft prevention programs.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Associate Director, Healthcare Operations | Indian Army</h3>
+                            <div class="timeline-date">2021 - 2022</div>
+                            <p>Enhanced healthcare access for 200,000+ ex-servicemen across 216 facilities. Applied Six Sigma to achieve 78% process efficiency improvement and unlocked INR 1800M in resources.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Chief Security Officer | Indian Army</h3>
+                            <div class="timeline-date">2019 - 2021</div>
+                            <p>Secured 10,000-acre facility with advanced JOC achieving 95% threat detection. Designed layered perimeter defense strategies with 80% faster response times.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>HOD Legal & Investigation | Indian Army</h3>
+                            <div class="timeline-date">2016 - 2019</div>
+                            <p>Directed training programs for 1000+ professionals across Southeast Asia. Co-authored 2 training manuals now embedded in defense curriculum, improving investigative capabilities by 60%.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Regional Security Manager | Indian Army</h3>
+                            <div class="timeline-date">2014 - 2016</div>
+                            <p>Pioneered security plan spanning 150 sq km, reducing breaches by 80%. Implemented multi-state transportation security achieving 80% reduction in theft incidents.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="certifications" class="section">
+                <h2>Certifications & Education</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <h3>🎓 Executive Business Management</h3>
+                        <p>IIM Lucknow</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>📊 PGDBA Marketing Management</h3>
+                        <p>Symbiosis Centre for Distance Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>🔒 Lead Auditor ISO 27001:2022</h3>
+                        <p>Information Security Management</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>⚖️ Governance Risk & Compliance (GRCP)</h3>
+                        <p>Professional Certification</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>📈 Six Sigma Green Belt</h3>
+                        <p>Process Improvement Methodology</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>💻 Cyber Law</h3>
+                        <p>Central Bureau of Investigation</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lt Col Rahul Banerjee. All rights reserved. | Security & Risk Management Professional</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for project cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Set initial state and observe project cards
+        document.querySelectorAll('.project-card, .timeline-item, .cert-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</body>
+</html>
